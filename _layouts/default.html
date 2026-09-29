@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.full_title }}</title>
+<meta name="description" content="{{ page.description }}">
+{% if page.noindex %}<meta name="robots" content="noindex">{% else %}<meta name="robots" content="index,follow,max-image-preview:large">{% endif %}
+<link rel="canonical" href="{{ page.canonical }}">
+<meta name="theme-color" content="#0b0f1a">
+<meta property="og:type" content="{{ page.og_type }}">
+<meta property="og:site_name" content="01810 — Markets &amp; Fortune">
+<meta property="og:title" content="{{ page.full_title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ page.canonical }}">
+<meta property="og:image" content="https://01810.com/assets/img/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+{% assign v = site.time | date: '%Y%m%d%H%M' %}<link rel="stylesheet" href="assets/css/style.css?v={{ v }}">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}catch(e){}</script>
+<script src="assets/js/config.js?v={{ v }}" defer></script>
+<script src="assets/js/chrome.js?v={{ v }}" defer></script>
+<script src="assets/js/app.js?v={{ v }}" defer></script>
+{% for s in page.extra_js %}<script src="assets/js/{{ s }}?v={{ v }}" defer></script>{% endfor %}
+{{ page.schema_html }}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership<span>Contact →</span></a></div>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="01810 home"><img class="logo" src="assets/img/logo.svg" alt="" width="38" height="38"><span>01810<small>Markets &amp; Fortune</small></span></a>
+    <ul class="menu"><li><a href="markets.html"{% if page.active == "markets" %} aria-current="page"{% endif %}>Markets</a></li><li><button type="button" aria-haspopup="true"{% if page.active == "lab" %} aria-current="page"{% endif %}>Number Lab ▾</button><div class="dropdown"><a href="decoder.html">Number Decoder<small>Luck score for any number</small></a><a href="zodiac.html">Chinese Zodiac<small>Sign, element &amp; compatibility</small></a><a href="zodiac.html#kua">Kua &amp; Feng Shui<small>Your best directions</small></a><a href="why-8-is-lucky.html">Why 8 is lucky<small>The money behind numbers</small></a></div></li><li><a href="tools.html"{% if page.active == "tools" %} aria-current="page"{% endif %}>Tools</a></li><li><button type="button" aria-haspopup="true"{% if page.active == "learn" %} aria-current="page"{% endif %}>Learn ▾</button><div class="dropdown"><a href="learn.html">Learning Hub<small>Guides, glossary &amp; FAQ</small></a><a href="hk-stock-codes-explained.html">HK stock codes explained<small>The 5-digit system</small></a><a href="meaning-of-01810.html">The meaning of 01810<small>Market, culture, history</small></a><a href="learn.html#glossary">Glossary<small>A–Z of HK &amp; China markets</small></a></div></li><li><a href="videos.html"{% if page.active == "videos" %} aria-current="page"{% endif %}>Videos</a></li><li><button type="button" aria-haspopup="true"{% if page.active == "community" %} aria-current="page"{% endif %}>Community ▾</button><div class="dropdown"><a href="contests.html">Contests &amp; Prizes<small>Win monthly prizes</small></a><a href="support.html">Support 01810<small>Send a red packet</small></a><a href="careers.html">Careers<small>Join the team</small></a><a href="advertise.html">Advertise &amp; Sponsor<small>Reach our audience</small></a><a href="about.html">About us<small>Mission &amp; standards</small></a></div></li></ul>
+    <div class="nav-right">
+      <form class="search" role="search"><input aria-label="Search a stock code or any number" placeholder="Stock code or number…" inputmode="numeric"><button aria-label="Search">→</button></form>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">☾</button>
+      <a class="btn btn-primary btn-sm" href="get-started.html">Get Started</a>
+      <button class="icon-btn hamburger" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+<div class="ticker-wrap"><div id="ticker"></div></div>
+<main id="main">
+{{ content }}
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><img class="logo" src="assets/img/logo.svg" alt="" width="38" height="38"><span>01810<small>Markets &amp; Fortune</small></span></a>
+        <p class="mt-1">Hong Kong &amp; China markets, decoded — plus the culture of lucky numbers that moves money across Asia. Free tools, clear guides, weekly briefs.</p>
+        <form class="form" data-form="Newsletter signup (footer)" data-success="You're in! Watch your inbox for the next brief.">
+  <div class="inline-form"><input type="email" name="email" required placeholder="Your email address" aria-label="Email address">
+  <button class="btn btn-gold" type="submit">Get the free brief</button></div>
+  <div class="chips"><label class="check" style="color:#c9d0e2"><input type="checkbox" name="lists" value="HK Markets Daily" checked> HK Markets Daily</label>
+  <label class="check" style="color:#c9d0e2"><input type="checkbox" name="lists" value="Lucky Numbers Weekly" checked> Lucky Numbers Weekly</label></div>
+  <div class="hp" aria-hidden="true"><label>Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label></div><div class="form-status" role="status" aria-live="polite"></div>
+  <p class="form-note">Free. No spam. Unsubscribe anytime. By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+</form>
+        <div class="socials"><a href="#" data-social-youtube aria-label="YouTube" target="_blank" rel="noopener">▶</a><a href="#" data-mail="Hello from a 01810 reader" aria-label="Email us">✉</a><a href="https://web.works/contact" target="_blank" rel="noopener" aria-label="Partnerships">🤝</a></div>
+      </div>
+      <div><h4>Markets &amp; Tools</h4><ul><li><a href="markets.html">Markets overview</a></li><li><a href="markets.html#watchlist">Watchlist</a></li><li><a href="tools.html#cost">HK trading cost</a></li><li><a href="tools.html#growth">Compound growth</a></li><li><a href="tools.html#dividend">Dividend / DRIP</a></li><li><a href="tools.html#position">Position size</a></li></ul></div>
+      <div><h4>Number Lab</h4><ul><li><a href="decoder.html">Number Decoder</a></li><li><a href="zodiac.html">Chinese Zodiac</a></li><li><a href="zodiac.html#compat">Compatibility</a></li><li><a href="zodiac.html#kua">Kua number</a></li><li><a href="why-8-is-lucky.html">Why 8 is lucky</a></li><li><a href="meaning-of-01810.html">Meaning of 01810</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="get-started.html">Get Started (free plan)</a></li><li><a href="contests.html">Contests &amp; prizes</a></li><li><a href="support.html">Support us</a></li><li><a href="careers.html">Careers</a></li><li><a href="videos.html">Videos</a></li><li><a href="learn.html">Learning hub</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="advertise.html">Advertise &amp; sponsor</a></li><li><a href="https://web.works/contact" target="_blank" rel="noopener">Buy / partner on this domain</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="disclaimer.html">Disclaimer &amp; trademarks</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <p>© <span data-year>2026</span> 01810.com. All rights reserved. Original content, design, tools and code are the property of 01810.com and may not be reproduced without permission.</p>
+      <p><b>Trademark &amp; copyright disclosure:</b> “01810” is used on this site only as a number and domain name. 01810.com is an independent publication and is <b>not affiliated with, endorsed by or sponsored by</b> any company whose securities trade under code 01810 or any similar code, nor by Hong Kong Exchanges and Clearing Ltd, Hang Seng Indexes Company, TradingView, YouTube/Google or any broker. All third-party names, tickers and marks belong to their respective owners and are used for identification and commentary only. Embedded videos and market widgets remain the property of their creators. See our full <a href="disclaimer.html">Disclaimer &amp; Trademark notice</a>.</p>
+      <p><b>Not financial advice:</b> Content and tools are for education and entertainment only. Market data may be delayed. Numerology and feng shui content is cultural and for entertainment. Investing involves risk, including loss of principal.</p>
+    </div>
+  </div>
+</footer>
+<div id="chrome"></div>
+</body>
+</html>
