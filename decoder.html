@@ -1,0 +1,58 @@
+---
+layout: "default"
+full_title: "Chinese Lucky Number Decoder — Luck Score for Any Number | 01810"
+description: "Free Chinese lucky number calculator. Decode any phone number, licence plate, address or stock code: luck score, hidden phrases like 168 and 518, and digit meanings."
+canonical: "https://01810.com/decoder.html"
+og_type: "website"
+active: "lab"
+extra_js: ["tools.js"]
+schema_html: "<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"Chinese Lucky Number Decoder\", \"applicationCategory\": \"LifestyleApplication\", \"operatingSystem\": \"Any\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"USD\"}}</script>"
+noindex: false
+---
+<section class="page-hero"><div class="container"><div class="crumbs"><a href="index.html">Home</a> / Number Lab / Decoder</div><h1>Chinese Lucky Number Decoder</h1><p>Enter any phone number, licence plate, address, price or stock code. Get a luck score, the hidden phrases inside it and a digit-by-digit reading based on traditional Chinese homophones.</p></div></section>
+<div class="container"><div class="ad leader" aria-label="Advertisement"></div></div>
+<section class="block" style="padding-top:20px"><div class="container layout"><div>
+  <div class="tool">
+    <form id="decoderForm" class="tool-input"><input id="decoderInput" aria-label="Number to decode" placeholder="e.g. 01810" inputmode="numeric" maxlength="20"><button class="btn btn-gold" type="submit">Decode ✦</button></form>
+    <div class="chips mt-1"><span class="small muted">Try:</span><button class="chip" data-try="01810">01810</button><button class="chip" data-try="888">888</button><button class="chip" data-try="1688">1688</button><button class="chip" data-try="5201314">5201314</button><button class="chip" data-try="518">518</button><button class="chip" data-try="4444">4444</button><button class="chip" data-try="88888888">88888888</button></div>
+    <div class="result" id="decoderResult"></div>
+  </div>
+  <div class="ad rect" aria-label="Advertisement"></div>
+  <div class="card mt-2" id="report"><span class="tag red">Free PDF</span><h3 class="mt-1">Email me the full report</h3>
+<p class="small">Get the full reading: best and worst combinations, suggested alternatives, and matching lucky dates for your zodiac sign.</p>
+<form class="form" data-form="Full report request (decoder)" data-success="Your full report request is in. Check your inbox shortly.">
+<div class="row"><div><label for="rpName-decoder">First name</label><input id="rpName-decoder" name="name" required></div><div><label for="rpEmail-decoder">Email</label><input id="rpEmail-decoder" type="email" name="email" required></div></div>
+<div class="row"><div><label for="reportNumber">Number to analyse</label><input id="reportNumber" name="number" inputmode="numeric"></div><div><label for="rpUse-decoder">What is it for?</label><select id="rpUse-decoder" name="use"><option>Phone number</option><option>Car plate</option><option>Address / unit</option><option>Business / price</option><option>Stock code</option><option>Other</option></select></div></div>
+<label class="check"><input type="checkbox" name="consent" value="yes" required> Send me the report and the weekly brief. I accept the <a href="privacy.html">Privacy Policy</a>.</label>
+<div class="hp" aria-hidden="true"><label>Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label></div><button class="btn btn-primary" type="submit">Send my report →</button><div class="form-status" role="status" aria-live="polite"></div></form></div>
+  <div class="article mt-2">
+    <h2 class="mt-0">How the Decoder works</h2>
+    <p>Chinese has many homophones, words that sound alike. Numbers pick up the meaning of the words they sound like. <b>8 (bā)</b> sounds like <b>發 (fā)</b>, “to prosper”. <b>4 (sì)</b> sounds like <b>死 (sǐ)</b>, “death”. In phone and room numbers, <b>1</b> is often read <b>yāo</b>, which sounds close to <b>要</b>, “will / want”. That is why 518 reads as 我要发, “I will prosper”.</p>
+    <p>Our score starts at a neutral 50. Each digit adds or subtracts points: 8, 6 and 9 add the most and 4 subtracts the most. We then add bonuses for known lucky phrases (168, 518, 888, 1314…) and penalties for unlucky ones (14, 74, 250), and scale the result to 1–99.</p>
+    <h3>Digit cheat-sheet</h3>
+    <div class="table-wrap"><table><tr><th>Digit</th><th>Chinese</th><th>Sounds like</th><th>Feel</th></tr>
+    <tr><td>0</td><td class="zh">零</td><td>你 “you” (slang) · 良 “good”</td><td class="pos">Positive</td></tr>
+    <tr><td>1</td><td class="zh">一 / 幺</td><td>要 “will”</td><td class="pos">Positive</td></tr>
+    <tr><td>2</td><td class="zh">二</td><td>“good things come in pairs”</td><td class="pos">Positive</td></tr>
+    <tr><td>3</td><td class="zh">三</td><td>生 “life / birth”</td><td class="pos">Positive</td></tr>
+    <tr><td>4</td><td class="zh">四</td><td>死 “death”</td><td class="neg">Avoided</td></tr>
+    <tr><td>5</td><td class="zh">五</td><td>五行 five elements · 无 “none”</td><td>Neutral</td></tr>
+    <tr><td>6</td><td class="zh">六</td><td>流 “flow / smooth”</td><td class="pos">Very lucky</td></tr>
+    <tr><td>7</td><td class="zh">七</td><td>起 “rise” · 气 “anger”</td><td>Mixed</td></tr>
+    <tr><td>8</td><td class="zh">八</td><td>發 “prosper”</td><td class="pos">Luckiest</td></tr>
+    <tr><td>9</td><td class="zh">九</td><td>久 “long-lasting”</td><td class="pos">Very lucky</td></tr></table></div>
+    <p class="small muted mt-1">Cultural and entertainment tool. Regional readings vary between Mandarin and Cantonese.</p>
+  </div>
+</div><aside class="sidebar">
+  
+  <div class="card"><h3>📬 Free weekly brief</h3><p class="small">HK &amp; China markets + the week's lucky numbers. Takes 3 minutes to read.</p><form class="form" data-form="Newsletter signup (sidebar)" data-success="You're in! Watch your inbox for the next brief.">
+  <div class="inline-form"><input type="email" name="email" required placeholder="Your email address" aria-label="Email address">
+  <button class="btn btn-gold" type="submit">Get the free brief</button></div>
+  <div class="chips"><label class="check" style="color:var(--muted)"><input type="checkbox" name="lists" value="HK Markets Daily" checked> HK Markets Daily</label>
+  <label class="check" style="color:var(--muted)"><input type="checkbox" name="lists" value="Lucky Numbers Weekly" checked> Lucky Numbers Weekly</label></div>
+  <div class="hp" aria-hidden="true"><label>Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label></div><div class="form-status" role="status" aria-live="polite"></div>
+  <p class="form-note">Free. No spam. Unsubscribe anytime. By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+</form></div>
+  <div class="ad tall" aria-label="Advertisement"></div>
+  <div class="card"><h3>Popular tools</h3><ul class="list-check small"><li><a href="decoder.html">Number Decoder</a></li><li><a href="zodiac.html">Zodiac &amp; Compatibility</a></li><li><a href="zodiac.html#kua">Kua Number</a></li><li><a href="tools.html#cost">HK Trading Cost</a></li><li><a href="markets.html">Markets &amp; Watchlist</a></li></ul></div>
+</aside></div></section>
