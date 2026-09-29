@@ -1,0 +1,78 @@
+---
+layout: "default"
+full_title: "Free HK Stamp Duty, Compound Growth, Dividend & Position Size Calculators | 01810"
+description: "Free Hong Kong trading cost calculator (stamp duty, SFC levy, HKEX fees), compound growth, dividend DRIP and board-lot position size calculators."
+canonical: "https://01810.com/tools.html"
+og_type: "website"
+active: "tools"
+extra_js: ["tools.js"]
+schema_html: "<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"01810 Investor Calculators\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Any\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"USD\"}}</script>"
+noindex: false
+---
+<section class="page-hero"><div class="container"><div class="crumbs"><a href="index.html">Home</a> / Tools</div><h1>Free Investor Calculators</h1><p>Work out the real cost of a Hong Kong trade, see compound growth, model dividend income and size positions by board lot. Everything runs in your browser.</p></div></section>
+<div class="container"><div class="ad leader" aria-label="Advertisement"></div></div>
+<section class="block" style="padding-top:20px"><div class="container layout"><div>
+  <div class="chips"><a class="chip" href="#cost">HK trading cost</a><a class="chip" href="#growth">Compound growth</a><a class="chip" href="#dividend">Dividend / DRIP</a><a class="chip" href="#position">Position size</a><a class="chip" href="decoder.html">Number Decoder</a><a class="chip" href="zodiac.html#kua">Kua number</a></div>
+
+  <div class="tool mt-2" id="cost"><span class="tag">Hong Kong</span><h2 class="mt-1">HK Trading Cost Calculator</h2><p class="muted">See every fee on a Hong Kong stock trade: stamp duty, levies, exchange fee, settlement and broker commission.</p>
+    <form id="costForm" class="form"><div class="row"><div><label for="cPrice">Share price (HK$)</label><input id="cPrice" type="number" step="0.001" value="28.50" min="0"></div><div><label for="cQty">Quantity (shares)</label><input id="cQty" type="number" value="1000" min="0"></div></div>
+    <div class="row"><div><label for="cComm">Broker commission (%)</label><input id="cComm" type="number" step="0.001" value="0.03" min="0"></div><div><label for="cMin">Minimum commission (HK$)</label><input id="cMin" type="number" value="3" min="0"></div></div>
+    <div><label for="cSide">Side</label><select id="cSide"><option>buy</option><option>sell</option></select></div><button class="btn btn-jade" type="submit">Calculate</button></form>
+    <div class="result" id="costResult"></div>
+  </div>
+  <div class="ad rect" aria-label="Advertisement"></div>
+
+  <div class="tool mt-2" id="growth"><span class="tag">Any market</span><h2 class="mt-1">Compound Growth Calculator</h2>
+    <form id="growthForm" class="form"><div class="row"><div><label for="gP">Starting amount ($)</label><input id="gP" type="number" value="8888"></div><div><label for="gM">Monthly contribution ($)</label><input id="gM" type="number" value="500"></div></div>
+    <div class="row"><div><label for="gR">Expected annual return (%)</label><input id="gR" type="number" step="0.1" value="7"></div><div><label for="gY">Years</label><input id="gY" type="number" value="18" min="1" max="60"></div></div><button class="btn btn-jade" type="submit">Calculate</button></form>
+    <div class="result" id="growthResult"></div>
+  </div>
+
+  <div class="tool mt-2" id="dividend"><span class="tag">Income</span><h2 class="mt-1">Dividend &amp; DRIP Calculator</h2>
+    <form id="divForm" class="form"><div class="row"><div><label for="dInv">Investment ($)</label><input id="dInv" type="number" value="50000"></div><div><label for="dY">Dividend yield (%)</label><input id="dY" type="number" step="0.1" value="5.5"></div></div>
+    <div class="row"><div><label for="dG">Dividend growth / yr (%)</label><input id="dG" type="number" step="0.1" value="3"></div><div><label for="dYrs">Years</label><input id="dYrs" type="number" value="10"></div></div>
+    <div><label for="dTax">Withholding tax (%)</label><input id="dTax" type="number" value="0" step="1"></div><button class="btn btn-jade" type="submit">Calculate</button></form>
+    <div class="result" id="divResult"></div>
+  </div>
+  <div class="ad inart" aria-label="Advertisement"></div>
+
+  <div class="tool mt-2" id="position"><span class="tag">Risk</span><h2 class="mt-1">Position Size by Board Lot</h2><p class="muted">Size a position from your risk budget, rounded down to whole HK board lots, with the HKD and USD value.</p>
+    <form id="posForm" class="form"><div class="row"><div><label for="pAcct">Account size (HK$)</label><input id="pAcct" type="number" value="200000"></div><div><label for="pRisk">Risk per trade (%)</label><input id="pRisk" type="number" step="0.1" value="1"></div></div>
+    <div class="row"><div><label for="pEntry">Entry price (HK$)</label><input id="pEntry" type="number" step="0.001" value="28.5"></div><div><label for="pStop">Stop price (HK$)</label><input id="pStop" type="number" step="0.001" value="26.8"></div></div>
+    <div class="row"><div><label for="pLot">Board lot (shares)</label><input id="pLot" type="number" value="200"></div><div><label for="pFx">USD/HKD rate</label><input id="pFx" type="number" step="0.0001" value="7.80"></div></div><button class="btn btn-jade" type="submit">Calculate</button></form>
+    <div class="result" id="posResult"></div>
+  </div>
+  <div class="mt-3"><div class="lead-box">
+  <div>
+    <span class="eyebrow">Free download · 2027 edition</span>
+    <h2 class="mt-1">Want these numbers applied to <em>your</em> goals?</h2>
+    <p>Get a free personalised starter plan: your goal, your timeline, the fees to watch and a broker checklist. It takes 60 seconds.</p>
+    <ul class="list-check" style="color:#e8ecf5"><li>Lucky numbers, colours &amp; directions for all 12 signs</li><li>HK/China market calendar, IPO watch &amp; key dates</li><li>Our favourite free calculators for smarter decisions</li></ul>
+    <div class="trust"><span>🔒 No spam</span><span>✉ Weekly, free</span><span>⚡ Instant access</span></div>
+  </div>
+  <div class="card">
+    <form class="form" data-form="Lead magnet: 2027 Guide (tools)" data-success="Done! Your guide is on its way. Check your inbox (and promotions tab).">
+      <div><label for="lb-name-tools">First name</label><input id="lb-name-tools" name="name" required autocomplete="given-name" placeholder="e.g. Mei"></div>
+      <div><label for="lb-email-tools">Email</label><input id="lb-email-tools" type="email" name="email" required autocomplete="email" placeholder="you@example.com"></div>
+      <div><label for="lb-int-tools">I'm most interested in</label><select id="lb-int-tools" name="interest"><option>Hong Kong &amp; China investing</option><option>Lucky numbers &amp; feng shui</option><option>Both — give me everything</option></select></div>
+      <label class="check"><input type="checkbox" name="consent" value="yes" required> I agree to receive emails from 01810 and accept the <a href="privacy.html">Privacy Policy</a>.</label>
+      <div class="hp" aria-hidden="true"><label>Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn btn-primary btn-block" type="submit">Send my free guide →</button>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div></div>
+  <p class="form-note mt-2">Calculators are for education only and use simplified assumptions. Fee rates reflect published HK rates at time of writing and can change.</p>
+</div><aside class="sidebar">
+  
+  <div class="card"><h3>📬 Free weekly brief</h3><p class="small">HK &amp; China markets + the week's lucky numbers. Takes 3 minutes to read.</p><form class="form" data-form="Newsletter signup (sidebar)" data-success="You're in! Watch your inbox for the next brief.">
+  <div class="inline-form"><input type="email" name="email" required placeholder="Your email address" aria-label="Email address">
+  <button class="btn btn-gold" type="submit">Get the free brief</button></div>
+  <div class="chips"><label class="check" style="color:var(--muted)"><input type="checkbox" name="lists" value="HK Markets Daily" checked> HK Markets Daily</label>
+  <label class="check" style="color:var(--muted)"><input type="checkbox" name="lists" value="Lucky Numbers Weekly" checked> Lucky Numbers Weekly</label></div>
+  <div class="hp" aria-hidden="true"><label>Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label></div><div class="form-status" role="status" aria-live="polite"></div>
+  <p class="form-note">Free. No spam. Unsubscribe anytime. By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+</form></div>
+  <div class="ad tall" aria-label="Advertisement"></div>
+  <div class="card"><h3>Popular tools</h3><ul class="list-check small"><li><a href="decoder.html">Number Decoder</a></li><li><a href="zodiac.html">Zodiac &amp; Compatibility</a></li><li><a href="zodiac.html#kua">Kua Number</a></li><li><a href="tools.html#cost">HK Trading Cost</a></li><li><a href="markets.html">Markets &amp; Watchlist</a></li></ul></div>
+</aside></div></section>
