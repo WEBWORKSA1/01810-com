@@ -1,0 +1,6 @@
+/* SITE */
+Name: 01810 — Markets & Fortune
+URL: https://01810.com
+Standards: HTML5, CSS3, vanilla JS
+Hosting: GitHub Pages (Jekyll)
+Partnerships: https://web.works/contact
