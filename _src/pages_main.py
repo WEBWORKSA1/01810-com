@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded",function(){{
 page("index", "01810 — Hong Kong & China Markets, Lucky Numbers & Free Tools",
      "Free Hong Kong & China market tools, HK stock code lookup, calculators and a Chinese lucky Number Decoder, zodiac and feng shui. Where markets meet the meaning of numbers.",
      home, scripts=("tools.js",),
-     schema=[{"@context": "https://schema.org", "@type": "Organization", "name": "01810", "url": SITE, "logo": SITE + "/assets/img/icon-512.png"},
+     schema=[{"@context": "https://schema.org", "@type": "Organization", "name": "01810", "url": SITE, "logo": SITE + "/assets/img/logo.svg"},
              {"@context": "https://schema.org", "@type": "WebSite", "name": "01810 — Markets & Fortune", "url": SITE,
               "potentialAction": {"@type": "SearchAction", "target": SITE + "/decoder.html?n={search_term_string}", "query-input": "required name=search_term_string"}}])
 
