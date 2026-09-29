@@ -136,28 +136,7 @@ def footer():
     </div>
   </div>
 </footer>
-<nav class="tabbar" aria-label="Quick links"><a href="markets.html"><span>📈</span>Markets</a><a href="decoder.html"><span>✦</span>Decoder</a><a href="zodiac.html"><span>🐉</span>Zodiac</a><a href="contests.html"><span>🏆</span>Win</a><a class="hot" href="get-started.html"><span>🚀</span>Start</a></nav>
-<div class="cookie" id="cookie" role="dialog" aria-label="Cookie consent">
-  <b>We value your privacy</b>
-  <p class="small muted mt-1" style="margin-bottom:0">We use cookies for essential features and, with your consent, for analytics and personalised ads (Google AdSense). See our <a href="privacy.html">Privacy Policy</a>.</p>
-  <div class="actions"><button class="btn btn-jade btn-sm" data-consent="all">Accept all</button><button class="btn btn-ghost btn-sm" data-consent="essential">Essential only</button></div>
-</div>
-<div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
-  <div class="box">
-    <button class="close" aria-label="Close">×</button>
-    <span class="tag red">Free · 2027 edition</span>
-    <h3 id="lmTitle" class="mt-1" style="font-size:1.5rem">Before you go — grab the 2027 Wealth &amp; Luck Guide</h3>
-    <p class="muted">Lucky numbers, colours and dates for your sign, plus our HK/China market outlook. Free, in your inbox.</p>
-    <form class="form" data-form="Exit-intent lead" data-success="Sent! Check your inbox for the guide.">
-      <input name="name" placeholder="First name" required autocomplete="given-name" aria-label="First name">
-      <input type="email" name="email" placeholder="Email address" required autocomplete="email" aria-label="Email">
-      {hp()}<button class="btn btn-primary btn-block" type="submit">Send it to me →</button>{status()}
-      <p class="form-note">No spam. Unsubscribe anytime.</p>
-    </form>
-  </div>
-</div>
-<div class="toast" id="toast" role="status"></div>
-<button class="back-top" id="backTop" aria-label="Back to top">↑</button>'''
+<div id="chrome"></div>'''
 
 def render(p):
     url = SITE + "/" + ("" if p["slug"] == "index" else p["slug"] + ".html")
@@ -183,16 +162,17 @@ def render(p):
 <meta property="og:title" content="{full_title}">
 <meta property="og:description" content="{p['desc']}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/assets/img/og.png">
+<meta property="og:image" content="{SITE}/assets/img/og.svg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/logo.svg">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css?v={VERSION}">
 <script>try{{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}}catch(e){{}}</script>
 <script src="assets/js/config.js?v={VERSION}" defer></script>
+<script src="assets/js/chrome.js?v={VERSION}" defer></script>
 <script src="assets/js/app.js?v={VERSION}" defer></script>
 {scripts}
 {schema}</head>
