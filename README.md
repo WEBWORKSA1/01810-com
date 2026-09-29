@@ -15,7 +15,7 @@ Hong Kong & China markets, decoded, plus the culture of lucky numbers. A fast, s
 | Legal | `privacy.html`, `terms.html`, `disclaimer.html` (financial + trademark/copyright), cookie consent |
 
 ## How publishing works
-Every push to `main` runs `.github/workflows/publish.yml`. It builds the HTML pages from `_src/`, renders the PNG images from the SVG sources, commits the output to `main`, and publishes to the `gh-pages` branch, which GitHub Pages serves (free plan).
+The built HTML is committed at the repo root, so GitHub Pages serves it directly (free plan). **Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `(root)`**. The `gh-pages` branch mirrors `main` as well.
 
 ## Configure (edit `assets/js/config.js` only)
 1. **AdSense:** set `adsenseClient: "ca-pub-…"` (+ optional slot IDs) and update `ads.txt`. Ads load only after cookie consent.
@@ -26,7 +26,7 @@ Every push to `main` runs `.github/workflows/publish.yml`. It builds the HTML pa
 6. **Contest end date:** `contestEnds`.
 
 ## Edit pages
-Pages are generated from `_src/*.py`. Edit the content there and push. The workflow rebuilds everything. To build locally:
+Pages are generated from `_src/*.py`. Edit the content there, rebuild, and commit the regenerated `*.html`:
 ```bash
 python3 _src/build.py
 ```
