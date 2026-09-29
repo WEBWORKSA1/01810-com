@@ -1,0 +1,77 @@
+---
+layout: "default"
+full_title: "Support 01810 — Donate a Lucky Red Packet ($8, $18, $88) | 01810"
+description: "Support independent Hong Kong & China market education and Chinese number-culture tools. Give $8, $18 or $88 one-time or monthly via PayPal, or pledge another way."
+canonical: "https://01810.com/support.html"
+og_type: "website"
+active: "community"
+extra_js: []
+schema_html: ""
+noindex: false
+---
+<section class="page-hero"><div class="container"><div class="crumbs"><a href="index.html">Home</a> / Community / Support</div><h1>Support 01810 — send a red packet 🧧</h1><p>01810 is free and independent. Your support keeps the tools running and funds new features, videos, marketing, contest prizes and new team members.</p></div></section>
+<section class="block"><div class="container grid-2" style="align-items:start">
+  <div class="tool" id="donate">
+    <div class="toggle" data-group="freq" role="group" aria-label="Frequency"><button type="button" class="on" data-f="once">One-time</button><button type="button" data-f="monthly">Monthly</button></div>
+    <h2 class="mt-2">Choose a lucky amount</h2>
+    <div class="amounts" data-group="amount">
+      <button type="button" class="amount" data-value="8"><b>$8</b><small>發 prosper</small></button>
+      <button type="button" class="amount selected" data-value="18"><b>$18</b><small>要發 will prosper</small></button>
+      <button type="button" class="amount" data-value="88"><b>$88</b><small>double fortune</small></button>
+      <button type="button" class="amount" data-value="168"><b>$168</b><small>一路發 all the way</small></button>
+    </div>
+    <div class="mt-1"><label for="dCustom">Or enter a custom amount (USD)</label><input id="dCustom" type="number" min="1" placeholder="e.g. 28"></div>
+    <div class="hero-actions">
+      <button class="btn btn-primary" id="payPal" type="button">Give $<span id="dAmt">18</span> with PayPal</button>
+      <a class="btn btn-gold" id="bmc" href="#" target="_blank" rel="noopener" style="display:none">☕ Buy us a coffee</a>
+      <a class="btn btn-jade" id="stripe" href="#" target="_blank" rel="noopener" style="display:none">💳 Card / Apple Pay</a>
+    </div>
+    <p class="form-note mt-1">Secure payment on the provider's site. Card and PayPal details never touch our servers.</p>
+    <hr style="border:0;border-top:1px solid var(--line);margin:22px 0">
+    <h3>Prefer to pledge or give another way?</h3>
+    <p class="small muted">Bank transfer, corporate matching, in-kind support (hosting, design, data) or a larger gift: tell us and we'll reply with details.</p>
+    <form class="form" data-form="Donation pledge" data-success="Thank you! We'll reply with payment details shortly. 🧧">
+      <div class="row"><div><label for="plName">Name</label><input id="plName" name="name" required></div><div><label for="plEmail">Email</label><input id="plEmail" type="email" name="email" required></div></div>
+      <div class="row"><div><label for="plAmt">Amount</label><input id="plAmt" name="amount" placeholder="e.g. $888 or in-kind"></div><div><label for="plUse">Direct my support to</label><select id="plUse" name="designation"><option>Where it's needed most</option><option>Operations &amp; hosting</option><option>Promotion &amp; marketing</option><option>Hiring talent</option><option>Contest prizes</option><option>Video production</option></select></div></div>
+      <div><label for="plMsg">Message for the supporters wall <span class="muted">(optional)</span></label><input id="plMsg" name="message" maxlength="140"></div>
+      <label class="check"><input type="checkbox" name="public" value="yes"> Show my first name on the supporters wall</label>
+      <div class="hp" aria-hidden="true"><label>Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label></div><button class="btn btn-ghost btn-block" type="submit">Send pledge</button><div class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+  <div>
+    <h2>Where your money goes</h2>
+    <div class="card">
+      <p class="small"><b>Operations &amp; hosting</b> · 30%</p><div class="bar"><span style="width:30%"></span></div>
+      <p class="small mt-1"><b>New tools &amp; content</b> · 25%</p><div class="bar"><span style="width:25%"></span></div>
+      <p class="small mt-1"><b>Promotion &amp; marketing</b> · 20%</p><div class="bar"><span style="width:20%"></span></div>
+      <p class="small mt-1"><b>Hiring writers, editors &amp; translators</b> · 15%</p><div class="bar"><span style="width:15%"></span></div>
+      <p class="small mt-1"><b>Contest prizes</b> · 10%</p><div class="bar"><span style="width:10%"></span></div>
+      <p class="form-note mt-1">Target allocation. We publish an annual transparency note.</p>
+    </div>
+    <h2 class="mt-2">Monthly supporter tiers</h2>
+    <div class="grid-3">
+      <div class="card tier"><h3>Friend</h3><div class="price">$5<small>/mo</small></div><ul class="list-check small"><li>Name on supporters wall</li><li>Supporter badge in newsletter</li></ul></div>
+      <div class="card tier featured"><span class="ribbon">Popular</span><h3>Lucky 8</h3><div class="price">$8<small>/mo</small></div><ul class="list-check small"><li>Everything in Friend</li><li>Ad-light newsletter</li><li>Early access to new tools</li></ul></div>
+      <div class="card tier"><h3>Patron</h3><div class="price">$18<small>/mo</small></div><ul class="list-check small"><li>Everything in Lucky 8</li><li>Annual personal reading</li><li>Vote on new features</li></ul></div>
+    </div>
+    <h2 class="mt-2">Supporters wall</h2>
+    <div class="wall"><div>🧧 Be our first founding supporter. Your name goes here.</div></div>
+    <div class="card mt-2"><h3>Businesses: sponsor instead</h3><p class="small">Get your brand in front of investors and culture lovers with “Presented by” placements, newsletter slots and contest sponsorships.</p><a class="btn btn-jade btn-sm" href="advertise.html">See sponsorship packages →</a></div>
+  </div>
+</div></section>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var C=window.SITE_CONFIG||{},amt=18,freq="once",$=Site.$;
+  function upd(){var c=+$("#dCustom").value;if(c>0)amt=c;$("#dAmt").textContent=amt;}
+  $("[data-group=amount]").addEventListener("pick",function(e){amt=+e.detail;$("#dCustom").value="";upd();});
+  $("#dCustom").addEventListener("input",upd);
+  Site.$$("[data-group=freq] button").forEach(function(b){b.addEventListener("click",function(){Site.$$("[data-group=freq] button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");freq=b.dataset.f;});});
+  if(C.buyMeACoffeeUrl){$("#bmc").href=C.buyMeACoffeeUrl;$("#bmc").style.display="";}
+  if(C.stripeLinks&&(C.stripeLinks.once||C.stripeLinks.monthly)){$("#stripe").style.display="";$("#stripe").addEventListener("click",function(){this.href=(freq==="monthly"&&C.stripeLinks.monthly)||C.stripeLinks.once;});}
+  $("#payPal").addEventListener("click",function(){
+    if(!C.paypalDonate){location.hash="#donate";return;}
+    var u="https://www.paypal.com/donate/?business="+encodeURIComponent(Site.inbox())+"&amount="+amt+"&currency_code=USD&no_recurring="+(freq==="monthly"?"0":"1")+"&item_name="+encodeURIComponent("Support 01810.com ("+freq+")");
+    window.open(u,"_blank","noopener");
+  });
+});
+</script>
