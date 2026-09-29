@@ -15,7 +15,7 @@ Hong Kong & China markets, decoded, plus the culture of lucky numbers. A fast, s
 | Legal | `privacy.html`, `terms.html`, `disclaimer.html` (financial + trademark/copyright), cookie consent |
 
 ## How publishing works
-The built HTML is committed at the repo root, so GitHub Pages serves it directly (free plan). **Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `(root)`**. The `gh-pages` branch mirrors `main` as well.
+GitHub Pages (free plan) builds the site with its built-in Jekyll: `_layouts/default.html` holds the shared head, top banner, header and footer, and each `*.html` page at the root is front matter plus page content. **Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `(root)`**.
 
 ## Configure (edit `assets/js/config.js` only)
 1. **AdSense:** set `adsenseClient: "ca-pub-…"` (+ optional slot IDs) and update `ads.txt`. Ads load only after cookie consent.
@@ -26,10 +26,12 @@ The built HTML is committed at the repo root, so GitHub Pages serves it directly
 6. **Contest end date:** `contestEnds`.
 
 ## Edit pages
-Pages are generated from `_src/*.py`. Edit the content there, rebuild, and commit the regenerated `*.html`:
+Pages are generated from `_src/*.py`. Edit the content there, rebuild, and commit the regenerated files:
 ```bash
-python3 _src/build.py
+python3 _src/build.py            # Jekyll sources for GitHub Pages (layout + pages + sitemap)
+python3 _src/build.py --static   # fully rendered HTML for any other static host
 ```
+You can also edit any root `*.html` page or `_layouts/default.html` directly on GitHub.
 
 ## Custom domain
 In **Settings → Pages → Custom domain**, enter `01810.com`. Then point DNS at GitHub Pages: A records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` and a `www` CNAME → `webworksa1.github.io`. Enable "Enforce HTTPS".

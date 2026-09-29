@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """01810.com static site builder.
-Run:  python3 _src/build.py   -> writes all *.html pages to the repo root.
+Run:  python3 _src/build.py            -> Jekyll sources (_layouts/default.html + front-matter pages) for GitHub Pages
+      python3 _src/build.py --static   -> fully rendered static HTML (for other hosts / local preview)
 Pages are defined in pages_*.py as dicts registered via page()."""
 import json, os, sys, datetime
 
@@ -92,7 +93,7 @@ NAV = [
 def header(active):
     items = []
     for key, href, label, sub in NAV:
-        cur = ' aria-current="page"' if key == active else ""
+        cur = ('{% if page.active == "' + key + '" %} aria-current="page"{% endif %}') if active == "LIQUID" else (' aria-current="page"' if key == active else "")
         if sub:
             dd = "".join(f'<a href="{h}">{l}<small>{s}</small></a>' for h, l, s in sub)
             items.append(f'<li><button type="button" aria-haspopup="true"{cur}>{label} ▾</button><div class="dropdown">{dd}</div></li>')
@@ -203,5 +204,81 @@ def build():
         f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
     print(f"Built {len(PAGES)} pages")
 
+LAYOUT_HEAD = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.full_title }}</title>
+<meta name="description" content="{{ page.description }}">
+{% if page.noindex %}<meta name="robots" content="noindex">{% else %}<meta name="robots" content="index,follow,max-image-preview:large">{% endif %}
+<link rel="canonical" href="{{ page.canonical }}">
+<meta name="theme-color" content="#0b0f1a">
+<meta property="og:type" content="{{ page.og_type }}">
+<meta property="og:site_name" content="01810 — Markets &amp; Fortune">
+<meta property="og:title" content="{{ page.full_title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ page.canonical }}">
+<meta property="og:image" content="SITE/assets/img/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+{% assign v = site.time | date: '%Y%m%d%H%M' %}<link rel="stylesheet" href="assets/css/style.css?v={{ v }}">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}catch(e){}</script>
+<script src="assets/js/config.js?v={{ v }}" defer></script>
+<script src="assets/js/chrome.js?v={{ v }}" defer></script>
+<script src="assets/js/app.js?v={{ v }}" defer></script>
+{% for s in page.extra_js %}<script src="assets/js/{{ s }}?v={{ v }}" defer></script>{% endfor %}
+{{ page.schema_html }}
+</head>
+<body>
+""".replace("SITE", SITE)
+
+def build_jekyll():
+    """Write Jekyll sources: _layouts/default.html + one front-matter page per slug.
+    GitHub Pages builds these natively (free plan, no Actions needed)."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import build as B
+    import pages_main, pages_lab, pages_community, pages_legal  # noqa: F401
+    os.makedirs(os.path.join(ROOT, "_layouts"), exist_ok=True)
+    layout = LAYOUT_HEAD + header("LIQUID") + '\n<main id="main">\n{{ content }}\n</main>\n' + footer() + "\n</body>\n</html>\n"
+    with open(os.path.join(ROOT, "_layouts", "default.html"), "w", encoding="utf-8") as f:
+        f.write(layout)
+    for p in B.PAGES:
+        schema_html = ""
+        if p["schema"]:
+            for s in (p["schema"] if isinstance(p["schema"], list) else [p["schema"]]):
+                schema_html += '<script type="application/ld+json">' + json.dumps(s, ensure_ascii=False) + "</script>"
+        fm = {
+            "layout": "default",
+            "full_title": p["title"] if p["slug"] == "index" else p["title"] + " | 01810",
+            "description": p["desc"],
+            "canonical": SITE + "/" + ("" if p["slug"] == "index" else p["slug"] + ".html"),
+            "og_type": "article" if p["schema"] and "Article" in json.dumps(p["schema"]) else "website",
+            "active": p["active"],
+            "extra_js": list(p["scripts"]),
+            "schema_html": schema_html,
+            "noindex": bool(p["noindex"]),
+        }
+        if p["slug"] == "404":
+            fm["permalink"] = "/404.html"
+        body = p["body"]
+        if "{{" in body or "{%" in body:
+            body = "{% raw %}" + body + "{% endraw %}"
+        head = "---\n" + "".join(f"{k}: {json.dumps(v, ensure_ascii=False)}\n" for k, v in fm.items()) + "---\n"
+        with open(os.path.join(ROOT, p["slug"] + ".html"), "w", encoding="utf-8") as f:
+            f.write(head + body + "\n")
+    urls = "".join(f"<url><loc>{SITE}/{'' if p['slug']=='index' else p['slug']+'.html'}</loc><lastmod>{datetime.date.today()}</lastmod><priority>{'1.0' if p['slug']=='index' else '0.8'}</priority></url>" for p in B.PAGES if not p["noindex"])
+    with open(os.path.join(ROOT, "sitemap.xml"), "w") as f:
+        f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
+    print(f"Wrote Jekyll layout + {len(B.PAGES)} pages")
+
 if __name__ == "__main__":
-    build()
+    # Default: Jekyll sources for GitHub Pages. Use --static to write fully-rendered HTML instead.
+    if "--static" in sys.argv:
+        build()
+    else:
+        build_jekyll()
